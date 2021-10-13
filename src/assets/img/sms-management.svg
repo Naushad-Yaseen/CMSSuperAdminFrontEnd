@@ -1,0 +1,22 @@
+<svg id="sms-management" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+  <g id="Group_1852" data-name="Group 1852" transform="translate(7.562 3.75)">
+    <g id="Group_1851" data-name="Group 1851">
+      <path id="Path_17493" data-name="Path 17493" d="M249.031,120h-5.625A1.408,1.408,0,0,0,242,121.406v3.813a1.408,1.408,0,0,0,1.406,1.406h.469v1.406a.469.469,0,0,0,.8.331l1.738-1.738h2.618a1.408,1.408,0,0,0,1.406-1.406v-3.812A1.408,1.408,0,0,0,249.031,120Zm-2.812,4.75h-1.875a.469.469,0,0,1,0-.937h1.875a.469.469,0,0,1,0,.938Zm1.875-1.937h-3.75a.469.469,0,0,1,0-.937h3.75a.469.469,0,0,1,0,.938Z" transform="translate(-242 -120)" fill="#fff"/>
+    </g>
+  </g>
+  <g id="Group_1854" data-name="Group 1854">
+    <g id="Group_1853" data-name="Group 1853">
+      <path id="Path_17494" data-name="Path 17494" d="M8.969,0H1.406A1.408,1.408,0,0,0,0,1.406v.469H10.375V1.406A1.408,1.408,0,0,0,8.969,0Z" fill="#fff"/>
+    </g>
+  </g>
+  <g id="Group_1856" data-name="Group 1856" transform="translate(0 2.813)">
+    <g id="Group_1855" data-name="Group 1855">
+      <path id="Path_17495" data-name="Path 17495" d="M9.366,100.267a1.4,1.4,0,0,1-.866-1.3v-.516a2.348,2.348,0,0,1-1.875-2.3V92.344A2.346,2.346,0,0,1,8.969,90H0v9.906a.468.468,0,0,0,.469.469H9.906A1.4,1.4,0,0,1,9.366,100.267Z" transform="translate(0 -90)" fill="#fff"/>
+    </g>
+  </g>
+  <g id="Group_1858" data-name="Group 1858" transform="translate(0 14.125)">
+    <g id="Group_1857" data-name="Group 1857">
+      <path id="Path_17496" data-name="Path 17496" d="M0,452v.469a1.408,1.408,0,0,0,1.406,1.406H8.969a1.408,1.408,0,0,0,1.406-1.406V452Z" transform="translate(0 -452)" fill="#fff"/>
+    </g>
+  </g>
+</svg>

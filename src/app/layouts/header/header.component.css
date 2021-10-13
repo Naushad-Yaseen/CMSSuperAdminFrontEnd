@@ -1,0 +1,76 @@
+.sb-topnav {height: 70px; background-color: var(--white);}
+.navbar-brand{padding-top: 15px; padding-bottom: 15px; width: 225px; padding-left: 1rem; padding-right: 1rem; margin: 0; text-align: center; display: -ms-flexbox; display: flex; align-items: center; justify-content: center;}
+.profile-dropdown > .dropdown-toggle::after{display: none;}
+.profile-dropdown > .dropdown-toggle > span{margin-right: 10px;}
+.profile-dropdown > .dropdown-toggle > span::after {
+    display: inline-block;
+    margin-left: 0.255em;
+    content: "";
+    /* width: 11px; height: 7px; background: url(../../../assets/img/down-arrow.svg) no-repeat right center; */
+}
+
+.navbar-brand img{max-height: 55px;}
+#sidebarToggle{margin-left: 20px; min-width: inherit;}
+
+.usernameDD{text-align: center; font-weight: 600;}
+
+
+    .navbar-nav .circleLink {
+        /*width: 2.375rem;
+        height: 2.375rem;
+        border-radius: 50%;
+         background-color: #F3F5F7; */
+        text-align: center;
+        line-height: 2.375rem;
+        position: relative;
+        font-size: 18px;
+
+    }
+
+    nav .navbar-nav .circleLink a {color: var(--dark-alpha-text); position: relative; display: inline-block; padding: 0;}
+    nav .navbar-nav a{font-size: 15px;}
+    nav .navbar-nav a:hover{background-color: transparent;}
+    nav .navbar-nav .circleLink a .badge {
+        width: 0.7125rem;
+        height: 0.7125rem;
+        border-radius: 50%;
+        background: var(--orange);
+        color: var(--white);
+        font-size: 0;
+        border: 2px solid #fff;
+        line-height: 0;
+        text-align: center;
+        position: absolute;
+        top: 4px;
+        right: -2px;
+        content: " ";
+        display: block;
+        min-width: inherit; padding: 0;
+    }
+
+    .profile-dropdown .dropdown-toggle {color: #000 !important;}
+    .header-dp {width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        overflow: hidden;
+        display: inline-block;
+    }
+  /*========== Responsiveness CSS ===========*/
+  
+@media (max-width: 500px){
+    .sb-topnav{flex-wrap: wrap; height: auto;}
+    .navbar-brand{width: 6.5rem;}
+    .navbar-nav{margin-right: 0.9375rem !important;}     
+}
+ 
+  
+  @media (max-width: 470px){
+    .sb-topnav #sidebarToggle {position: absolute; right: 2px;}
+  }
+
+  .userName{
+    text-align: center;
+    padding: 0 10px 10px;
+    font-weight: 700;
+}
+

@@ -1,0 +1,126 @@
+<main>
+    <div class="page-breadcrumb d-md-flex align-items-center justify-content-between">
+        <h2 class="page-title">Manage Staff</h2>
+        <!-- <app-breadcrumb></app-breadcrumb> -->
+        <div class="breadcrumbWidget">
+            <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+              <li class="breadcrumb-item"><a routerLink="/manage-staff">Manage Staff</a></li>
+              <li class="breadcrumb-item active" aria-current="page">View Staff</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="matCard">
+            <div class="matCrdTitle centerItemVert justify-content-between">
+                <h3 class="matCardTitle">View Staff - virat</h3>
+                <a routerLink="/admin-user" class="btn btn-primary btnsmall">Back</a>
+            </div>
+            
+            <div class="matCardBody">
+                <div class="profileDetailsWidget pt-4 d-md-flex">
+                    <div class="profilePicLeft form-group30">
+                        <p class="chngePic">
+                            <input type="file">
+                            <span class="icon centerItem"><mat-icon>edit</mat-icon></span>
+                            <img src="../../../assets/img/display.jpg" alt="">
+                        </p>
+                    </div>
+                    <div class="profileContentRight flex-grow-1">
+                        <div class="proSection">
+                            <h5>Staff Details</h5>
+                            <div class="row">
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>First Name :</label>
+                                        <span>{{firstName}}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>Last Name :</label>
+                                        <span>{{lastName}}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label> Phone Number:</label>
+                                        <span>{{contactNumber}}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>Email :</label>
+                                        <span>{{email}}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>Date of Birth : </label>
+                                        <span>{{dob | date:"dd/MM/yy"}}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>Gender :</label>
+                                        <span>{{genderName}}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>Role :</label>
+                                        <span>{{roleName}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="proSection">
+                            <h5>Additional Information</h5>
+                            <div class="row">
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>Blood Group :</label>
+                                        <span>{{bloodGroupName}}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>Address :</label>
+                                        <span>{{address | lowercase}}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>City :</label>
+                                        <span>{{city | uppercase}}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>Zip Code :</label>
+                                        <span>{{zipCode}}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>State :</label>
+                                        <span>{{stateName}}</span>
+                                    </div>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <div class="detailsContent">
+                                        <label>Country :</label>
+                                        <span>{{countryName}}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                      
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

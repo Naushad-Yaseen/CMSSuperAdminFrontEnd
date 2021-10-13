@@ -1,0 +1,84 @@
+<main>
+    <div class="page-breadcrumb d-md-flex align-items-center justify-content-between">
+        <h2 class="page-title"> Email Templates</h2>
+        <!-- <app-breadcrumb></app-breadcrumb> -->
+        <div class="breadcrumbWidget">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><a routerLink="/email-templates">Email
+                        Templates</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Edit Template</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="matCard">
+            <div class="matCrdTitle centerItemVert justify-content-between">
+                <h3 class="matCardTitle">Edit Template</h3>
+                <a routerLink="/email-templates" class="btn btn-primary btnsmall">Back</a>
+            </div>
+
+            <div class="matCardBody">
+                <div class="profileDetailsWidget pt-4 d-md-flex">
+                    <!-- <div class="profilePicLeft form-group30">
+                        <p class="chngePic">
+                            <input type="file">
+                            <span class="icon centerItem"><mat-icon>edit</mat-icon></span>
+                            <img src="../../../assets/img/display.jpg" alt="">
+                        </p>
+                    </div> -->
+                    <div class="profileContentRight flex-grow-1">
+                        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                            <div class="proSection">
+                                <div class="row">
+                                    <div class="col s12 m12 form-group">
+                                        <mat-form-field class="w-100 mat-form-field-readonly" appearance="outline">
+                                            <mat-label>Name <span class="req">*</span></mat-label>
+                                            <input matInput readonly="true" formControlName="templateName">
+                                            <!-- readonly="true"  is used to disable the text-->
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col s12 m12 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Subject<span class="req">*</span></mat-label>
+                                            <input matInput  formControlName="templateSubject">
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col s12 m12 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>From<span class="req">*</span></mat-label>
+                                            <input matInput formControlName="emailFrom">
+                                        </mat-form-field>
+                                    </div>
+                                    <!-- <div class="col s12 m12 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Contents<span class="req">*</span></mat-label>
+                                            <input matInput formControlName="contents">
+                                        </mat-form-field>
+                                    </div> -->
+                                    <div class="col s12 m12 form-group">
+                                        <!-- <ejs-richtexteditor id='defaultRTE'>
+                                            <ng-template #valueTemplate>
+                                              <p>The Rich Text Editor component is WYSIWYG ("what you see is what you get") editor that provides the best user
+                                                experience to create and update the content.
+                                                Users can format their content using standard toolbar commands.</p>
+                                      
+                                            </ng-template>
+                                          </ejs-richtexteditor> -->
+                                          <ejs-richtexteditor #textEditorValue formControlName="contents" >
+                                        </ejs-richtexteditor>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="proSection center">
+                                <button type="submit" class="btn btn-primary">Update</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

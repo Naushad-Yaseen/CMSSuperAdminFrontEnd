@@ -1,0 +1,109 @@
+<main>
+    <div class="page-breadcrumb d-md-flex align-items-center justify-content-between">
+        <h2 class="page-title"> Subscription Plans</h2>
+        <!-- <app-breadcrumb></app-breadcrumb> -->
+        <div class="breadcrumbWidget">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item"><a routerLink="/subscription-plan">Subscription Plans</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Subscription Plan</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="matCard">
+            <div class="matCrdTitle centerItemVert justify-content-between">
+                <h3 class="matCardTitle">Add Subscription Plan</h3>
+                <a routerLink="/subscription-plan" class="btn btn-primary btnsmall">Back</a>
+            </div>
+
+            <div class="matCardBody">
+                <div class="profileDetailsWidget pt-4 d-md-flex">
+                    <!-- <div class="profilePicLeft form-group30">
+                        <p class="chngePic">
+                            <input type="file">
+                            <span class="icon centerItem"><mat-icon>edit</mat-icon></span>
+                            <img src="../../../assets/img/display.jpg" alt="">
+                        </p>
+                    </div> -->
+                    <div class="profileContentRight flex-grow-1">
+                        <form [formGroup]="form" (ngSubmit)="onSubmit(); form.reset()">
+
+                            <div class="proSection">
+                                <div class="row-flex">
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Plan Name <span class="req">*</span></mat-label>
+                                            <input matInput formControlName="planName">
+                                            <mat-error
+                                                *ngIf="form.get('planName')?.touched  && form.get('planName')?.errors?.required">
+                                                Plan Name is required</mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Plan Type<span class="req">*</span></mat-label>
+                                            <mat-select placeholder="Plan Type" formControlName="planID">
+                                                <mat-option value="Select plan Type">Plan Type</mat-option>
+                                                <mat-option *ngFor="let planType of planTypeDropdown "
+                                                    [value]="planType.planID">
+                                                    {{planType.planTypeName}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error
+                                                *ngIf="form.get('planID')?.touched  && form.get('planID')?.errors?.required">
+                                                Plan Type is required</mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Number Of User<span class="req">*</span></mat-label>
+                                            <input type="number" matInput formControlName="numberOfUserAllowed">
+                                            <mat-error
+                                                *ngIf="form.get('numberOfUserAllowed')?.touched  && form.get('numberOfUserAllowed')?.errors?.required">
+                                                Number of user is required</mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Pricing($)<span class="req">*</span></mat-label>
+                                            <input type="number" matInput formControlName="price">
+                                            <mat-error
+                                                *ngIf="form.get('price')?.touched  && form.get('price')?.errors?.required">
+                                                Price is required</mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+
+                                    <div class="col s12 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Status<span class="req">*</span></mat-label>
+                                            <mat-select placeholder="Status" formControlName="planStatusID">
+                                                <mat-option value="Select planStatus">Plan Status</mat-option>
+                                                <mat-option *ngFor="let status of planTypeStautusDropdown "
+                                                    [value]="status.planStatusID">
+                                                    {{status.planStatusName}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error
+                                                *ngIf="form.get('planStatusID')?.touched  && form.get('planStatusID')?.errors?.required">
+                                                Status is required</mat-error>
+                                        </mat-form-field>
+
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="proSection center">
+                                <button class="btn btn-primary" [disabled]="form.invalid" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

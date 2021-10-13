@@ -1,0 +1,79 @@
+<main>
+    <div class="page-breadcrumb d-md-flex align-items-center justify-content-between">
+        <h2 class="page-title"> Email Templates</h2>
+        <!-- <app-breadcrumb></app-breadcrumb> -->
+        <div class="breadcrumbWidget">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Email Templates</li>
+            </ol>
+        </div>
+    </div>
+    <div class="container-fluid">
+        <div class="matCard">
+            <div class="matCrdTitle centerItemVert justify-content-between">
+                <h3 class="matCardTitle">Templates</h3>
+                <a routerLink="/placeholder" class="btn btn-primary btnsmall">Placeholder</a>
+            </div>
+
+            <div class="matCardBody">
+                <div class="mat-elevation-z8">
+                    <table mat-table [dataSource]="dataSource" matSort>
+                        <!-- Checkbox Column -->
+                        <!-- <ng-container matColumnDef="select">
+                                <th mat-header-cell *matHeaderCellDef>
+                                  <mat-checkbox (change)="$event ? masterToggle() : null"
+                                                [checked]="selection.hasValue() && isAllSelected()"
+                                                [indeterminate]="selection.hasValue() && !isAllSelected()">
+                                  </mat-checkbox>
+                                </th>
+                                <td mat-cell *matCellDef="let row">
+                                  <mat-checkbox (click)="$event.stopPropagation()"
+                                                (change)="$event ? selection.toggle(row) : null"
+                                                [checked]="selection.isSelected(row)">
+                                  </mat-checkbox>
+                                </td>
+                              </ng-container> -->
+                        <!-- templateName -->
+                        <ng-container matColumnDef="templateName">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Name </th>
+                            <td mat-cell *matCellDef="let element"> {{element.templateName}} </td>
+                        </ng-container>
+
+                        <!-- ID organizationname -->
+                        <!-- <ng-container matColumnDef="profilepic">
+                                    <th mat-header-cell *matHeaderCellDef mat-sort-header> Profile Picture </th>
+                                    <td mat-cell *matCellDef="let element"> <p class="picCol"><img src="../../assets/img/display.jpg" alt=""></p> </td>
+                                  </ng-container> -->
+
+                        <!-- templateSubject Column -->
+                        <ng-container matColumnDef="templateSubject">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Subject </th>
+                            <td mat-cell *matCellDef="let element"> {{element.templateSubject}} </td>
+                        </ng-container>
+
+                        <!-- Actions Column -->
+                        <ng-container matColumnDef="actions">
+                            <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+                            <td mat-cell *matCellDef="let element">
+                                <div class="actionsCol">
+                                    <!-- <mat-icon routerLink="/Org-details">info</mat-icon> -->
+                                    <!-- <mat-icon (click)="actionDialogPopup(resetPasswordPopup)">lock</mat-icon>  -->
+                                    <mat-icon routerLink="/edit-template/{{element.emailTemplateID}}">edit</mat-icon>
+
+                                </div>
+                            </td>
+                        </ng-container>
+
+                        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                        <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+                        </tr>
+                    </table>
+                </div>
+                <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+
+            </div>
+        </div>
+    </div>
+
+</main>

@@ -1,0 +1,41 @@
+<!-- <p>header works!</p> -->
+<nav class="sb-topnav navbar navbar-expand">
+    <a class="navbar-brand" href="index.html"><img alt="Admim Theme" src="assets/img/logo.png"></a><button class="btn btn-link btn-sm order-1 order-lg-0" id="sidebarToggle" (click)="toggleSidebar()"><svg height="15.424" viewBox="0 0 23.136 15.424" width="23.136" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6.427,25.707H29.563V23.136H6.427v2.571Zm0-6.427H29.563V16.71H6.427V19.28Zm0-9v2.571H29.563V10.283H6.427Z" data-name="Icon metro-menu" id="Icon_metro-menu" transform="translate(-6.427 -10.283)"></path></svg></button><!-- Navbar Search-->
+   
+    <ul class="navbar-nav ml-auto align-items-center">
+        <li class="circleLink mr-3 mr-md-4">
+            <a href="#"><svg width="16" height="16" class="icon">
+                <use xlink:href="#search-icon" ></use>
+            </svg></a>
+        </li>
+        <li class="circleLink mr-3 mr-md-3">
+            <a mat-button [matMenuTriggerFor]="notificationMenu"><svg width="16" height="16" class="icon">
+                <use xlink:href="#bell-icon" ></use>
+            </svg><span class="badge"></span></a>
+            <mat-menu #notificationMenu="matMenu" xPosition="before" class="notificationsDDMenu">
+                <button mat-menu-item>
+                    <b>New session has been created by Staff</b>
+                    <span class="date">5 hours ago</span>
+                </button>
+                <button mat-menu-item>
+                    <b>Notification 1</b>
+                    <span class="date">5 hours ago</span>
+                </button>
+                <button mat-menu-item>
+                    <b>Notification 1</b>
+                    <span class="date">5 hours ago</span>
+                </button>
+            </mat-menu>
+        </li>
+        <li class="nav-item dropdown px-2 pl-md-3 profile-dropdown">
+            <a  mat-button [matMenuTriggerFor]="beforeMenu" class="nav-link dropdown-toggle d-flex align-items-center" id="userDropdown"> <span class="d-none d-md-block">{{user.firstName}} {{user.lastName}}</span><div class="header-dp mr-1"><img src="assets/img/display.jpg" alt=""></div></a>
+            <mat-menu #beforeMenu="matMenu" xPosition="before" class="profileDDMenu">
+                <p class="userName">{{user.firstName}} {{user.lastName}}</p>
+                <button mat-menu-item>Setting</button>
+                <button mat-menu-item>Profile</button>
+                <button mat-menu-item (click)="logout()">Log Out</button>
+            </mat-menu>
+        </li>
+    </ul>
+</nav>

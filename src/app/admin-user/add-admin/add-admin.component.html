@@ -1,0 +1,361 @@
+<main>
+    <div class="page-breadcrumb d-md-flex align-items-center justify-content-between">
+        <h2 class="page-title">Manage Staff</h2>
+        <!-- <app-breadcrumb></app-breadcrumb> -->
+        <div class="breadcrumbWidget">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item"><a routerLink="/manage-staff">Manage Staff</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Staff</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="matCard">
+            <div class="matCrdTitle centerItemVert justify-content-between">
+                <h3 class="matCardTitle">Add Staff</h3>
+                <a routerLink="/admin-user" class="btn btn-primary btnsmall">Back</a>
+            </div>
+
+            <div class="matCardBody">
+                <div class="profileDetailsWidget pt-4 d-md-flex">
+                    <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                        <div class="profilePicLeft form-group30">
+                            <!-- <mat-form-field class="w-100" appearance="outline">
+                              <mat-label>Profile pic <span class="req">*</span></mat-label>
+                              <input matInput placeholder="Profile" required name="Profile" formControlName="profilePic">
+                          </mat-form-field>     -->
+                            <!-- <p class="chngePic">
+                  <input type="file" accept="image/*" (change)="actionDialogPopup(uploadPopup,$event)">
+                  <span class="icon centerItem">
+                    <mat-icon>edit</mat-icon>
+                  </span>
+                  <img [src]="croppedImage" alt="">
+                </p> -->
+
+                            <!-- <p class="chngePic">
+                                  <input type="file" accept="image/*" (change)="fileChangeEvent($event)">
+                                  <span class="icon centerItem">
+                                      <mat-icon>edit</mat-icon>
+                                  </span>
+                                  <img [src]="croppedImage" alt="image">
+                              </p> -->
+                            <!-- <input type="file" (change)="fileChangeEvent($event)" /> -->
+
+                            <!-- <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true"
+                          [aspectRatio]="4 / 4" [resizeToWidth]="322" [cropperMinWidth]="1600" format="png" (imageCropped)="imageCropped($event)"
+                              (imageLoaded)="imageLoaded($event)" (cropperReady)="cropperReady()"
+                              (loadImageFailed)="loadImageFailed()"></image-cropper> -->
+
+                            <!-- <img [src]="croppedImage" /> -->
+
+                        </div>
+
+                        <div class="profileContentRight flex-grow-1">
+
+                            <div class="proSection">
+                                <h5>Staff Details</h5>
+
+                                <div class="row">
+
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>First Name </mat-label>
+                                            <!-- <input matInput formControlName="firstName"> -->
+                                            <input (keypress)="allowAlphabetOnly($event)" matInput
+                                                placeholder="First Name" required name="firstname"
+                                                formControlName="firstName">
+                                            <mat-error
+                                                *ngIf="form.get('firstName')?.touched  && form.get('firstName')?.errors?.required">
+                                                First Name is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Last Name</mat-label>
+                                            <!-- <input matInput formControlName="lastName"> -->
+                                            <input (keypress)="allowAlphabetOnly($event)" matInput
+                                                placeholder="Last Name" required name="lastName"
+                                                formControlName="lastName">
+                                            <mat-error
+                                                *ngIf="form.get('lastName')?.touched  && form.get('lastName')?.errors?.required">
+                                                Last Name is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>profile Pic</mat-label>
+                                            <input matInput formControlName="profilePic">
+                                            <!-- <input (keypress)="allowAlphabetOnly($event)" matInput placeholder="Last Name" required
+                          name="lastName" formControlName="lastName"> -->
+                                            <mat-error
+                                                *ngIf="form.get('profilePic')?.touched  && form.get('profilePic')?.errors?.required">
+                                                Last Name is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>User Name</mat-label>
+                                            <input matInput placeholder="User Name" required name="username"
+                                                formControlName="username">
+                                            <mat-error
+                                                *ngIf="form.get('username')?.touched  && form.get('username')?.errors?.required">
+                                                User Name is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <!-- <div formGroupName="passwordGroup">
+                                  <div class="col s12 m6 form-group">
+                                      <mat-form-field class="w-100" appearance="outline">
+                                          <mat-label>Password </mat-label>
+                                          <input matInput placeholder="Password" required name="Password" formControlName="password">
+                                      </mat-form-field>
+                                  </div>
+                                   <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                          <mat-label>Confirm Password</mat-label>
+                                          <input matInput placeholder="Confirm Password" formControlName="confirmPassword" type="password">
+  
+                                        </mat-form-field>
+  
+  
+                                      </div>
+                                      </div> -->
+
+
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Password</mat-label>
+                                            <input matInput type="password" placeholder="Password" required
+                                                name="password" formControlName="password">
+                                            <mat-error
+                                                *ngIf="form.get('password')?.touched  && form.get('password')?.errors?.required">
+                                                Password is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Phone Number</mat-label>
+                                            <!-- <input matInput formControlName="contactNumber"> -->
+                                            <input (keypress)="allowOnlyNumber($event)" maxlength="10" matInput
+                                                placeholder="Phone Number" required name="contactNumber"
+                                                formControlName="contactNumber">
+                                            <mat-error
+                                                *ngIf="form.get('contactNumber')?.touched  && form.get('contactNumber')?.errors?.required">
+                                                Phone Number is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>DateOfBirth</mat-label>
+                                            <!-- <input matInput required name="DateOfBirth" formControlName="dob"
+                                                [matDatepicker]="picker">
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker> -->
+                                            <input (click)="picker.open()" [max]="maxDate" matInput
+                                                placeholder="DateOfBirth" required name="DateOfBirth"
+                                                formControlName="dob" [matDatepicker]="picker">
+                                            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                            <mat-datepicker #picker></mat-datepicker>
+                                            <mat-error
+                                                *ngIf="form.get('dob')?.touched  && form.get('dob')?.errors?.required">
+                                                Field is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Email</mat-label>
+                                            <input matInput placeholder="email" required name="email"
+                                                formControlName="email">
+                                            <mat-error
+                                                *ngIf="form.get('email')?.touched  && form.get('email')?.errors?.required">
+                                                Email is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Select Gender</mat-label>
+                                            <input type="number" matInput formControlName="gender">
+                                            <!-- <mat-select placeholder="Gender" formControlName="gender">
+                          <mat-option *ngFor="let gender of genders " [value]="gender.genderID">
+                            {{gender.genderName}}
+                          </mat-option>
+                        </mat-select> -->
+                                            <mat-error
+                                                *ngIf="form.get('gender')?.touched  && form.get('gender')?.errors?.required">
+                                                Gender is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+
+
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Select Role</mat-label>
+                                            <!-- <input type="number" matInput formControlName="roleID"> -->
+                                            <mat-select placeholder="Role" formControlName="roleID">
+                                                <mat-option value="Select Role">Roles</mat-option>
+                                                <mat-option *ngFor="let role of RoleDropDown" [value]="role.roleID">
+                                                    {{role.roleName}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error
+                                                *ngIf="form.get('roleID')?.touched  && form.get('roleID')?.errors?.required">
+                                                Role is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="proSection">
+                                <h5>Additional Information</h5>
+                                <div class="row-flex">
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Blood Group</mat-label>
+                                            <!-- <input type="number" matInput required name="bloodGroup"
+                                                formControlName="bloodGroupID"> -->
+                                            <mat-select placeholder="Blood Group" required name="bloodGroup"
+                                                formControlName="bloodGroupID">
+                                                <mat-option value="Select Blood Group">Blood Group</mat-option>
+                                                <mat-option *ngFor="let bloodGroup of BloodGroupDropdown"
+                                                    [value]="bloodGroup.bloodGroupID">
+                                                    {{bloodGroup.bloodGroupName}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error
+                                                *ngIf="form.get('bloodGroupID')?.touched  && form.get('bloodGroupID')?.errors?.required">
+                                                Blood Group is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Address</mat-label>
+                                            <input matInput placeholder="address" required name="address"
+                                                formControlName="address">
+                                            <mat-error
+                                                *ngIf="form.get('address')?.touched  && form.get('address')?.errors?.required">
+                                                Address is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Country</mat-label>
+                                            <!-- <input type="number" matInput required name="address"
+                                                formControlName="countryID"> -->
+                                            <!-- 'isko mat-select k ander likhna hai'              (valueChange)="GetStateList($event)"  -->
+                                            <mat-select placeholder="Country" required name="country"
+                                                formControlName="countryID">
+                                                <mat-option value="Select Country">Country</mat-option>
+                                                <mat-option *ngFor="let country of CountryDropdown"
+                                                    [value]="country.countryID">
+                                                    {{country.countryName}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error
+                                                *ngIf="form.get('countryID')?.touched  && form.get('countryID')?.errors?.required">
+                                                Country is required
+                                            </mat-error>
+                                        </mat-form-field>
+
+
+
+                                    </div>
+
+                                    <!-- [disabled]="true" -->
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>State</mat-label>
+                                            <!-- <input type="number" matInput required name="address"
+                                                formControlName="stateID"> -->
+                                            <mat-select placeholder="State" required name="state"
+                                                formControlName="stateID">
+                                                <mat-option value="Select State">State</mat-option>
+                                                <mat-option *ngFor="let state of StateDropDown" [value]="state.stateID">
+                                                    {{state.stateName}}
+                                                </mat-option>
+                                            </mat-select>
+                                            <mat-error
+                                                *ngIf="form.get('stateID')?.touched  && form.get('stateID')?.errors?.required">
+                                                State is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>City</mat-label>
+                                            <input matInput placeholder="city" required name="city"
+                                                formControlName="city">
+                                            <mat-error
+                                                *ngIf="form.get('city')?.touched  && form.get('city')?.errors?.required">
+                                                City is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+
+
+
+
+                                    <div class="col s12 m6 form-group">
+                                        <mat-form-field class="w-100" appearance="outline">
+                                            <mat-label>Zip Code</mat-label>
+                                            <!-- <input matInput formControlName="zipCode"> -->
+                                            <input (keypress)="allowOnlyNumber($event)" maxlength="7" matInput
+                                                placeholder="Zip Code" required name="zipcode"
+                                                formControlName="zipcode">
+                                            <mat-error
+                                                *ngIf="form.get('zipcode')?.touched  && form.get('zipcode')?.errors?.required">
+                                                Zip Code is required
+                                            </mat-error>
+                                        </mat-form-field>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="proSection center">
+                                <button [disabled]="form.invalid" type="submit" class="btn btn-primary">Submit</button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- <ng-template #uploadPopup>
+    <div class="dialog-md">
+      <i class="material-icons popupClose" (click)="finalUpload()" mat-dialog-close>clear</i>
+      <div class="dialogTitle center-align loginTtile">
+        <h5 mat-dialog-title>Select Image Area</h5>
+      </div>
+      <mat-dialog-content class="mat-typography">
+        <div class="row">
+          <image-cropper [imageChangedEvent]="imageChangedEvent" [maintainAspectRatio]="true" [aspectRatio]="4 / 4"
+            [resizeToWidth]="322" [cropperMinWidth]="1600" format="png" (imageCropped)="imageCropped($event)"
+            (imageLoaded)="imageLoaded($event)" (cropperReady)="cropperReady()" (loadImageFailed)="loadImageFailed()">
+          </image-cropper> -->
+
+<!-- <img [src]="croppedImage" /> -->
+<!-- </div>
+  
+      </mat-dialog-content>
+    </div>
+  </ng-template> -->

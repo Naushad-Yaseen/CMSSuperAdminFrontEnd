@@ -1,0 +1,78 @@
+<main>
+    <div class="page-breadcrumb d-md-flex align-items-center justify-content-between">
+        <h2 class="page-title">Manage Email Subscription Plan</h2>
+        <!-- <app-breadcrumb></app-breadcrumb> -->
+        <div class="breadcrumbWidget">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+                <li class="breadcrumb-item active" aria-current="page">EditEmailSubscriptionPlan</li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="matCard">
+            <div class="matCrdTitle centerItemVert justify-content-between">
+                <h3 class="matCardTitle">Edit Email Subscription Plan</h3>
+                <a routerLink="/email-subs" class="btn btn-primary btnsmall">Back</a>
+            </div>
+
+            <div class="matCardBody">
+                <div class="profileDetailsWidget pt-4 d-md-flex">
+                    <!-- <div class="profilePicLeft form-group30">
+                        <p class="chngePic">
+                            <input type="file">
+                            <span class="icon centerItem"><mat-icon>edit</mat-icon></span>
+                            <img src="../../../assets/img/display.jpg" alt="">
+                        </p>
+                    </div> -->
+                    <div class="profileContentRight flex-grow-1">
+                        <div class="proSection">
+                            <h5>Subscription Details</h5>
+                            <div class="row">
+                                <div class="col s12 m6 form-group">
+                                    <mat-form-field class="w-100" appearance="outline">
+                                        <mat-label>Plan Name <span class="req">*</span></mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <mat-form-field class="w-100" appearance="outline">
+                                        <mat-label>Email Pack</mat-label>
+                                        <mat-select>
+                                            <mat-option value="one">500/Day</mat-option>
+                                            <mat-option value="two">1000/Day</mat-option>
+                                            <mat-option value="two">1500/Day</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <mat-form-field class="w-100" appearance="outline">
+                                        <mat-label>Pricing($)</mat-label>
+                                        <input matInput>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col s12 m6 form-group">
+                                    <mat-form-field class="w-100" appearance="outline">
+                                        <mat-label>Status</mat-label>
+                                        <mat-select>
+                                            <mat-option value="one">Active</mat-option>
+                                            <mat-option value="two">In-Active</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                
+                                
+                            </div>
+                        </div>
+
+                        <div class="proSection center">
+                            <button class="btn btn-primary">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+

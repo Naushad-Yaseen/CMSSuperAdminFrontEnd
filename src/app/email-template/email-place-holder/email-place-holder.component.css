@@ -1,0 +1,8 @@
+.placehoderWidget{border: 1px var(--divider) solid; padding: 5px;}
+.placehoderWidget > h4{background-color: var(--secondary); color: var(--white); padding: 10px;}
+.placehoderWidget > h5{background-color: var(--divider); color: var(--body-text-color); padding: 10px; margin-top: 5px;}
+
+.placeHolderContentRow{border-bottom: 1px var(--divider) solid;}
+.placeHolderContentRow > label{color: var(--body-text-color); font-weight: 500;}
+.placeHolderContentRow > label,
+.placeHolderContentRow > span{padding: 8px 10px; -ms-flex: 0 0 50%; flex: 0 0 50%; max-width: 50%; display: block; font-size: 14px;}
