@@ -104,7 +104,7 @@ const routes: Routes = [
         component: ToasterComponent,
       },
       {
-        path: 'add-staff',
+        path: 'addd-staff',
         component: AddAdminComponent,
         // canActivate:[AuthGuardService]
       },
