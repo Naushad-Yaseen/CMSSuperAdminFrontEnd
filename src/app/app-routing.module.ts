@@ -88,7 +88,7 @@ const routes: Routes = [
         component: AcademicSessionListComponent,
       },
       {
-        path: 'AddAcademicSession',
+        path: 'AddAcademicSession' ,
         component: AddAcademicSessionComponent,
       },
       {
