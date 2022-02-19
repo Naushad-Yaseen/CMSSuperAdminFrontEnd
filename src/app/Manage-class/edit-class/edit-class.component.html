@@ -1,0 +1,93 @@
+<main>
+  <div class="page-breadcrumb d-md-flex align-items-center justify-content-between">
+    <h2 class="page-title">Manage Class  </h2>
+    <!-- <app-breadcrumb></app-breadcrumb> -->
+    <!-- <div class="breadcrumbWidget">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+              <li class="breadcrumb-item"><a routerLink="/subscription-plan">Subscription Plans</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Add Subscription Plan</li>
+          </ol>
+      </div> -->
+  </div>
+
+  <div class="container-fluid">
+    <div class="matCard">
+      <div class="matCrdTitle centerItemVert justify-content-between">
+        <h3 class="matCardTitle">Add Class </h3>
+        <a routerLink="/dash/class-list" class="btn btn-primary btnsmall">Back</a>
+      </div>
+
+      <div class="matCardBody">
+        <div class="profileDetailsWidget pt-4 d-md-flex">
+
+          <div class="profileContentRight flex-grow-1">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+              <div class="proSection">
+                <div class="row-flex">
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Class  Name <span class="req">*</span></mat-label>
+                      <input matInput formControlName="className">
+                      <mat-error
+                        *ngIf="form.get('className')?.touched  && form.get('className')?.errors?.required">
+                        Class Name  is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <!-- </div> -->
+
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Class Code <span class="req">*</span></mat-label>
+                      <input matInput formControlName="classCode">
+                      <mat-error *ngIf="form.get('classCode')?.touched  && form.get('classCode')?.errors?.required">
+                       Class Code  is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+
+
+                  <!-- <div class="row-flex"> -->
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Students Limit <span class="req">*</span></mat-label>
+                      <input matInput formControlName="studentsLimit" type="number">
+                      <mat-error *ngIf="form.get('studentsLimit')?.touched  && form.get('studentsLimit')?.errors?.required">
+                        Students Limit is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Department Name <span class="req">*</span></mat-label>
+                      <!-- <input matInput formControlName="departmentID" type="number"> -->
+                      <mat-select placeholder="Enter Department Name" formControlName="departmentID">
+                        <mat-option value="select department">Select Department</mat-option>
+                        <mat-option *ngFor="let item of DepartmentDropdown" [value]="item.departmentID">
+                          {{item.departmentName}}</mat-option>
+                      </mat-select>
+                      <mat-error *ngIf="form.get('departmentID')?.touched  && form.get('departmentID')?.errors?.required">
+                        DepartmentID  is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+
+                </div>
+
+
+
+              </div>
+
+              <div class="proSection center">
+                <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+

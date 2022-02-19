@@ -17,16 +17,24 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { MatSortModule } from '@angular/material/sort';
 import {MatTreeModule} from '@angular/material/tree';
 import { NgxMatIntlTelInputModule } from 'ngx-mat-intl-tel-input';
-import { TreeviewModule } from 'ngx-treeview';
+// import { TreeviewModule } from 'ngx-treeview';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { FilterDataPipe } from './filter-data.pipe';
 
-
-
+//import { SearchPipe } from './search.pipe';
 // import { RichTextEditorModule } from '@syncfusion/ej2-angular-richtexteditor';
 
 @NgModule({
-  declarations: [],
+  declarations: [
+   // SearchPipe
+
+    FilterDataPipe,
+  // UselessPipePipe
+  ],
   imports: [
-    CommonModule, 
+    CommonModule,
     MatMenuModule,
     MatIconModule,
     MatTableModule,
@@ -36,13 +44,15 @@ import { TreeviewModule } from 'ngx-treeview';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule,    
+    MatSelectModule,
     MatRadioModule,
     MatCheckboxModule,
     CdkTableModule,
     MatSortModule,
     MatTreeModule,
-    NgxMatIntlTelInputModule
+    NgxMatIntlTelInputModule,
+    MatCardModule,MatButtonModule,
+    MatDatepickerModule
     //TreeviewModule.forRoot(),
 
     // RichTextEditorModule
@@ -57,13 +67,14 @@ import { TreeviewModule } from 'ngx-treeview';
     MatDialogModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSelectModule,    
+    MatSelectModule,
     MatRadioModule,
     MatCheckboxModule,
     CdkTableModule,
     MatSortModule,
     MatTreeModule,
-
+    MatCardModule,MatButtonModule,
+    MatDatepickerModule
     // RichTextEditorModule
   ]
 })

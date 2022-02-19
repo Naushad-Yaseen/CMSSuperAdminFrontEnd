@@ -1,0 +1,99 @@
+<main>
+  <div class="page-breadcrumb d-md-flex align-items-center justify-content-between">
+    <h2 class="page-title">Manage Academic Session </h2>
+    <!-- <app-breadcrumb></app-breadcrumb> -->
+    <!-- <div class="breadcrumbWidget">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+              <li class="breadcrumb-item"><a routerLink="/subscription-plan">Subscription Plans</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Add Subscription Plan</li>
+          </ol>
+      </div> -->
+  </div>
+
+  <div class="container-fluid">
+    <div class="matCard">
+      <div class="matCrdTitle centerItemVert justify-content-between">
+        <h3 class="matCardTitle">Add Academic Session</h3>
+        <a routerLink="/dash/AcademicSessionList" class="btn btn-primary btnsmall">Back</a>
+      </div>
+
+      <div class="matCardBody">
+        <div class="profileDetailsWidget pt-4 d-md-flex">
+
+          <div class="profileContentRight flex-grow-1">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+              <div class="proSection">
+                <div class="row-flex">
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Academic Session Name <span class="req">*</span></mat-label>
+                      <input matInput formControlName="academicSessionName">
+                      <mat-error
+                        *ngIf="form.get('academicSessionName')?.touched  && form.get('academicSessionName')?.errors?.required">
+                        Academic Session Name is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <!-- </div> -->
+
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Academic Session startDate <span class="req">*</span></mat-label>
+                      <input matInput formControlName="startDate" [matDatepicker]="pick">
+                      <mat-datepicker-toggle matSuffix [for]="pick"></mat-datepicker-toggle>
+                      <mat-datepicker #pick></mat-datepicker>
+                      <mat-error *ngIf="form.get('startDate')?.touched  && form.get('startDate')?.errors?.required">
+                        Academic Session startDate is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+
+
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Academic Session endDate <span class="req">*</span></mat-label>
+                      <input matInput formControlName="endDate" [matDatepicker]="picker">
+                      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                      <mat-datepicker #picker></mat-datepicker>
+                      <mat-error *ngIf="form.get('endDate')?.touched  && form.get('endDate')?.errors?.required">
+                        Academic Session endDate is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <!-- </div> -->
+                  <div class="col s12 m6 form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Academic Session Status<span class="req">*</span></mat-label>
+                      <!-- <input matInput formControlName="academicSessionStatusID"> -->
+                      <mat-select placeholder="AcademicSessionStatus" formControlName="academicSessionStatusID">
+                        <mat-option value="AcademicSessionStatus">Select Academic Session Status</mat-option>
+                        <mat-option *ngFor="let item of SessionStatusDropDown"
+                        [value]="item.academicSessionStatusID">
+                        {{item.academicSessionStatusName}}
+                      </mat-option>
+                      </mat-select>
+
+                      <mat-error
+                        *ngIf="form.get('academicSessionStatusID')?.touched  && form.get('academicSessionStatusID')?.errors?.required">
+                        Academic Session Status is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                </div>
+
+
+
+              </div>
+
+              <div class="proSection center">
+                <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Update</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+

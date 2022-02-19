@@ -49,6 +49,31 @@ import { EditEmailTemplateComponent } from './email-template/edit-email-template
 import { EmailPlaceHolderComponent } from './email-template/email-place-holder/email-place-holder.component';
 import { TextEditerComponent } from './email-template/text-editer/text-editer.component';
 import { AddEmailTemplateComponent } from './email-template/add-email-template/add-email-template.component';
+import { AddOrgComponent } from './Org_Setup/add-org/add-org.component';
+import { OrgListComponent } from './Org_Setup/org-list/org-list.component';
+import { EditOrgComponent } from './Org_Setup/edit-org/edit-org.component';
+import { LoginComponent } from './login/login.component';
+import { ChangePasswordComponent } from './login/change-password/change-password.component';
+import { RNDComponent } from './rnd/rnd.component';
+import { AddAcademicSessionComponent } from './Manage_Academic_Session/add-academic-session/add-academic-session.component';
+import { EditAcademicSessionComponent } from './Manage_Academic_Session/edit-academic-session/edit-academic-session.component';
+
+import { AcademicSessionListComponent } from './Manage_Academic_Session/academic-session-list/academic-session-list.component';
+import { AddDepartmentComponent } from './Manage_Department/add-department/add-department.component';
+import { EditDepartmentComponent } from './Manage_Department/edit-department/edit-department.component';
+import { DepartmentListComponent } from './Manage_Department/department-list/department-list.component';
+import { AddClassComponent } from './Manage-class/add-class/add-class.component';
+import { EditClassComponent } from './Manage-class/edit-class/edit-class.component';
+import { ClassListComponent } from './Manage-class/class-list/class-list.component';
+import { AddSectionComponent } from './Manage_Section/add-section/add-section.component';
+import { EditSectionComponent } from './Manage_Section/edit-section/edit-section.component';
+import { SectionIlstComponent } from './Manage_Section/section-ilst/section-ilst.component';
+import { SubjectDetailsComponent } from './Manage-Subject/subject-details/subject-details.component';
+import { AddStudentComponent } from './Manage-student/add-student/add-student.component';
+import { EditStudentComponent } from './Manage-student/edit-student/edit-student.component';
+import { StudentListComponent } from './Manage-student/student-list/student-list.component';
+import { SearchPipe } from './shared/search.pipe';
+ import { UselessPipePipe } from '../app/shared/useless-pipe.pipe';
 
 //import { CKEditorModule } from 'ng2-ckeditor';
 
@@ -83,8 +108,31 @@ import { AddEmailTemplateComponent } from './email-template/add-email-template/a
     EmailPlaceHolderComponent,
     TextEditerComponent,
     AddEmailTemplateComponent,
+    AddOrgComponent,
+    OrgListComponent,
+    EditOrgComponent,
+    LoginComponent,
+    ChangePasswordComponent,
+    RNDComponent,
+    AddAcademicSessionComponent,
+    EditAcademicSessionComponent,
 
-
+    AcademicSessionListComponent,
+     AddDepartmentComponent,
+     EditDepartmentComponent,
+     DepartmentListComponent,
+     AddClassComponent,
+     EditClassComponent,
+     ClassListComponent,
+     AddSectionComponent,
+     EditSectionComponent,
+     SectionIlstComponent,
+     SubjectDetailsComponent,
+     AddStudentComponent,
+     EditStudentComponent,
+     StudentListComponent,
+SearchPipe,
+UselessPipePipe
 
   ],
   imports: [
@@ -106,7 +154,7 @@ import { AddEmailTemplateComponent } from './email-template/add-email-template/a
     MatIconModule,
     ToastrModule.forRoot({
       timeOut: 5000,
-      positionClass: 'toast-top-right',
+      positionClass: 'toast-bottom-right',
       preventDuplicates: true,
     }),
     TreeviewModule.forRoot(),

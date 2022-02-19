@@ -49,15 +49,17 @@ export class SiteSubscriptionComponent implements OnInit {
 
     });
     this.deleteId = id;
+    
+
   }
 
   confirmDelete() {
     this.subscriptionPlanService.DeleteSubscriptionPlan(this.deleteId).subscribe((res: any) => {
-      if (res.status > 0) {
-        this.toaster.success(res.message, 'Success');
-      } else {
-        this.toaster.error(res.message, 'Error');
-      }
+      // if (res.status > 0) {
+      //   this.toaster.success(res.message, 'Success');
+      // } else {
+      //   this.toaster.error(res.message, 'Error');
+      // }
     })
 
   }

@@ -1,0 +1,367 @@
+<main>
+  <div class="page-breadcrumb d-md-flex align-items-center justify-content-between">
+    <h2 class="page-title">Manage Student </h2>
+    <!-- <app-breadcrumb></app-breadcrumb> -->
+    <!-- <div class="breadcrumbWidget">
+          <ol class="breadcrumb">
+              <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+              <li class="breadcrumb-item"><a routerLink="/subscription-plan">Subscription Plans</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Add Subscription Plan</li>
+          </ol>
+      </div> -->
+  </div>
+
+  <div class="container-fluid">
+    <div class="matCard">
+      <div class="matCrdTitle centerItemVert justify-content-between">
+        <h3 class="matCardTitle">Update Student </h3>
+        <a routerLink="/dash/student-list" class="btn btn-primary btnsmall">Back</a>
+      </div>
+
+      <div class="matCardBody">
+        <div class="profileDetailsWidget pt-4 d-md-flex">
+
+          <div class="profileContentRight flex-grow-1">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()" autocomplete="off">
+              <div class="proSection">
+                <div class="row-flex">
+                  <div class="col s12 m4  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Academic Session Name <span class="req">*</span></mat-label>
+                      <!-- <input matInput formControlName="departmentID" type="number"> -->
+                      <mat-select placeholder="Enter Academic Session Name" formControlName="academicSessionID">
+                        <mat-option value="select AcademicSessionName">Select AcademicSessionName</mat-option>
+                        <mat-option *ngFor="let item of AcademicSessionDropdown" [value]="item.academicSessionID">
+                          {{item.academicSessionName}}</mat-option>
+                      </mat-select>
+                      <mat-error
+                        *ngIf="form.get('academicSessionID')?.touched  && form.get('academicSessionID')?.errors?.required">
+                        Academic Session Name is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                     <div class="col s12 m4  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Class  Name <span class="req">*</span></mat-label>
+                      <!-- <input matInput formControlName="departmentID" type="number"> -->
+                      <mat-select placeholder="Enter Class  Name"  formControlName="classID">
+                        <mat-option value="select ClassName">Select ClassName</mat-option>
+                        <mat-option *ngFor="let item of ClassDropDown" [value]="item.classID">
+                          {{item.className}}</mat-option>
+                      </mat-select>
+                      <mat-error
+                        *ngIf="form.get('classID')?.touched  && form.get('classID')?.errors?.required">
+                        Class Name is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                     <div class="col s12 m4  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Section  Name <span class="req">*</span></mat-label>
+                      <!-- <input matInput formControlName="departmentID" type="number"> -->
+                      <mat-select placeholder="Enter Section  Name" formControlName="sectionID">
+                        <mat-option value="select SectionName">Select SectionName</mat-option>
+                        <mat-option *ngFor="let item of SectionDropDown" [value]="item.sectionID">
+                          {{item.sectionName}}</mat-option>
+                      </mat-select>
+                      <mat-error
+                        *ngIf="form.get('sectionID')?.touched  && form.get('sectionID')?.errors?.required">
+                        Section Name is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Admission Number <span class="req">*</span></mat-label>
+                      <input matInput formControlName="admissionNumber">
+                      <mat-error
+                        *ngIf="form.get('admissionNumber')?.touched  && form.get('admissionNumber')?.errors?.required">
+                        Admission Number is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <!-- </div> -->
+
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>First Name <span class="req">*</span></mat-label>
+                      <input matInput formControlName="firstName">
+                      <mat-error *ngIf="form.get('firstName')?.touched  && form.get('firstName')?.errors?.required">
+                        First Name is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+
+
+                  <!-- <div class="row-flex"> -->
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Middle Name <span class="req">*</span></mat-label>
+                      <input matInput formControlName="middleName">
+                      <mat-error *ngIf="form.get('middleName')?.touched  && form.get('middleName')?.errors?.required">
+                        Middle Name is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Last Name <span class="req">*</span></mat-label>
+                      <input matInput formControlName="lastName">
+                      <mat-error *ngIf="form.get('lastName')?.touched  && form.get('lastName')?.errors?.required">
+                        Last Name is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Contact Number <span class="req">*</span></mat-label>
+                      <input matInput formControlName="contactNumber">
+                      <mat-error
+                        *ngIf="form.get('contactNumber')?.touched  && form.get('contactNumber')?.errors?.required">
+                        contact Number is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>genderID  <span class="req">*</span></mat-label>
+                      <input matInput formControlName="genderID" type="number">
+                      <mat-error *ngIf="form.get('genderID')?.touched  && form.get('genderID')?.errors?.required">
+                        genderID is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>bloodGroupID <span class="req">*</span></mat-label>
+                      <input matInput formControlName="bloodGroupID" type="number">
+                      <mat-error
+                        *ngIf="form.get('bloodGroupID')?.touched  && form.get('bloodGroupID')?.errors?.required">
+                        bloodGroupID is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>email <span class="req">*</span></mat-label>
+                      <input matInput formControlName="email">
+                      <mat-error *ngIf="form.get('email')?.touched  && form.get('email')?.errors?.required">
+                        email is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>DateOfBirth<span class="req">*</span></mat-label>
+                      <input matInput formControlName="dateOfBirth" type="date">
+                      <mat-error *ngIf="form.get('dateOfBirth')?.touched  && form.get('dateOfBirth')?.errors?.required">
+                        Date Of Birth is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>Address <span class="req">*</span></mat-label>
+                      <input matInput formControlName="address">
+                      <mat-error *ngIf="form.get('address')?.touched  && form.get('address')?.errors?.required">
+                        Address is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>zipCode <span class="req">*</span></mat-label>
+                      <input matInput formControlName="zipCode">
+                      <mat-error *ngIf="form.get('zipCode')?.touched  && form.get('zipCode')?.errors?.required">
+                        zipCode is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>stateID <span class="req">*</span></mat-label>
+                      <input matInput formControlName="stateID" type="number">
+                      <mat-error *ngIf="form.get('stateID')?.touched  && form.get('stateID')?.errors?.required">
+                        stateID is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>countryID <span class="req">*</span></mat-label>
+                      <input matInput formControlName="countryID" type="number">
+                      <mat-error *ngIf="form.get('countryID')?.touched  && form.get('countryID')?.errors?.required">
+                        countryID is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>city <span class="req">*</span></mat-label>
+                      <input matInput formControlName="city">
+                      <mat-error *ngIf="form.get('city')?.touched  && form.get('city')?.errors?.required">
+                        city is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>profilePhoto <span class="req">*</span></mat-label>
+                      <input matInput formControlName="profilePhoto">
+                      <mat-error
+                        *ngIf="form.get('profilePhoto')?.touched  && form.get('profilePhoto')?.errors?.required">
+                        profilePhoto is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>studentSkillID <span class="req">*</span></mat-label>
+                      <input matInput formControlName="studentSkillID">
+                      <mat-error
+                        *ngIf="form.get('studentSkillID')?.touched  && form.get('studentSkillID')?.errors?.required">
+                        studentSkillID is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>profileSummary <span class="req">*</span></mat-label>
+                      <input matInput formControlName="profileSummary">
+                      <mat-error
+                        *ngIf="form.get('profileSummary')?.touched  && form.get('profileSummary')?.errors?.required">
+                        profileSummary is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>facebookLink <span class="req">*</span></mat-label>
+                      <input matInput formControlName="facebookLink">
+                      <mat-error
+                        *ngIf="form.get('facebookLink')?.touched  && form.get('facebookLink')?.errors?.required">
+                        facebookLink is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>linkedInlink <span class="req">*</span></mat-label>
+                      <input matInput formControlName="linkedInlink">
+                      <mat-error
+                        *ngIf="form.get('linkedInlink')?.touched  && form.get('linkedInlink')?.errors?.required">
+                        linkedInlink is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>contactNumberCountryCode <span class="req">*</span></mat-label>
+                      <input matInput formControlName="contactNumberCountryCode">
+                      <mat-error
+                        *ngIf="form.get('contactNumberCountryCode')?.touched  && form.get('contactNumberCountryCode')?.errors?.required">
+                        contactNumberCountryCode is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>studentExtraInfoInJson <span class="req">*</span></mat-label>
+                      <input matInput formControlName="studentExtraInfoInJson">
+                      <mat-error
+                        *ngIf="form.get('studentExtraInfoInJson')?.touched  && form.get('studentExtraInfoInJson')?.errors?.required">
+                        studentExtraInfoInJson is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>parentsNumber <span class="req">*</span></mat-label>
+                      <input matInput formControlName="parentsNumber">
+                      <mat-error
+                        *ngIf="form.get('parentsNumber')?.touched  && form.get('parentsNumber')?.errors?.required">
+                        parentsNumber is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>fatherName <span class="req">*</span></mat-label>
+                      <input matInput formControlName="fatherName">
+                      <mat-error *ngIf="form.get('fatherName')?.touched  && form.get('fatherName')?.errors?.required">
+                        fatherName is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>motherName <span class="req">*</span></mat-label>
+                      <input matInput formControlName="motherName">
+                      <mat-error *ngIf="form.get('motherName')?.touched  && form.get('motherName')?.errors?.required">
+                        motherName is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>guardianName <span class="req">*</span></mat-label>
+                      <input matInput formControlName="guardianName">
+                      <mat-error
+                        *ngIf="form.get('guardianName')?.touched  && form.get('guardianName')?.errors?.required">
+                        guardianName is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>parentContact <span class="req">*</span></mat-label>
+                      <input matInput formControlName="parentContact">
+                      <mat-error
+                        *ngIf="form.get('parentContact')?.touched  && form.get('parentContact')?.errors?.required">
+                        parentContact is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>parentEmail <span class="req">*</span></mat-label>
+                      <input matInput formControlName="parentEmail">
+                      <mat-error *ngIf="form.get('parentEmail')?.touched  && form.get('parentEmail')?.errors?.required">
+                        parentEmail is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                  <!-- <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>guardianContact <span class="req">*</span></mat-label>
+                      <input matInput formControlName="guardianContact">
+                      <mat-error
+                        *ngIf="form.get('guardianContact')?.touched  && form.get('guardianContact')?.errors?.required">
+                        guardianContact is required</mat-error>
+                    </mat-form-field>
+
+                  </div> -->
+                  <div class="col s12 m6  form-group">
+                    <mat-form-field class="w-100" appearance="outline">
+                      <mat-label>guardianEmail <span class="req">*</span></mat-label>
+                      <input matInput formControlName="guardianEmail">
+                      <mat-error
+                        *ngIf="form.get('guardianEmail')?.touched  && form.get('guardianEmail')?.errors?.required">
+                        guardianEmail is required</mat-error>
+                    </mat-form-field>
+
+                  </div>
+                </div>
+              </div>
+
+              <div class="proSection center">
+                <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Submit</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+

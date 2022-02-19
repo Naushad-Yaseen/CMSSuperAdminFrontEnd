@@ -1,0 +1,14 @@
+mat-card{
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
+  padding-top: 20px;
+  /* background-color: lavender; */
+}
+mat-form-field{
+  display: block;
+}
+
+div{
+  text-align: left;
+}

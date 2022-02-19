@@ -1,0 +1,5 @@
+.picCol{height: 40px; width: 40px;}
+.picCol img{height: 100%; width: 100%; border-radius: 50%; object-fit: cover;}
+
+.filterForm{opacity: 0; height: 0; overflow: hidden; visibility: hidden; transition: all 0.5s ease;}
+.filterForm.toggled{opacity: 1; height: auto; visibility: visible; overflow: visible; }

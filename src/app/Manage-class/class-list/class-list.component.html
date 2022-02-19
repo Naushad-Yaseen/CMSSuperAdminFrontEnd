@@ -1,0 +1,98 @@
+<main>
+  <div class="page-breadcrumb d-md-flex align-items-center justify-content-between">
+    <h2 class="page-title"> Department  </h2>
+    <!-- <app-breadcrumb></app-breadcrumb> -->
+    <div class="breadcrumbWidget">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard">Dashboard</a></li>
+        <li class="breadcrumb-item active" aria-current="page"> Class  </li>
+      </ol>
+    </div>
+  </div>
+  <div class="container-fluid">
+    <div class="matCard">
+      <div class="matCrdTitle centerItemVert justify-content-between">
+        <h3 class="matCardTitle"> Class  </h3>
+        <a routerLink="/dash/add-class" class="btn btn-primary btnsmall">Add Class</a>
+      </div>
+
+      <div class="matCardBody">
+        <div class="tableActionTop mb-3">
+          <div class="tableFilter">
+
+          </div>
+          <div class="rightTableActions centerItemVert">
+            <div class="viewColumns tableActions">
+
+            </div>
+
+          </div>
+
+        </div>
+        <div class="mat-elevation-z8" #TABLE #table>
+          <table mat-table [dataSource]="dataSource" matSort>
+
+            <ng-container matColumnDef="ClassName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Class  Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.className}} </td>
+            </ng-container>
+            <ng-container matColumnDef="classCode">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> class Code </th>
+              <td mat-cell *matCellDef="let element"> {{element.classCode}} </td>
+            </ng-container>
+            <ng-container matColumnDef="studentsLimit">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> students Limit </th>
+              <td mat-cell *matCellDef="let element"> {{element.studentsLimit}} </td>
+            </ng-container>
+
+
+
+
+
+
+            <!-- Actions Column -->
+            <ng-container matColumnDef="actions">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions </th>
+              <td mat-cell *matCellDef="let element">
+                <div class="actionsCol">
+                  <!-- <mat-icon routerLink="/Org-details">info</mat-icon> -->
+                  <!-- <mat-icon (click)="actionDialogPopup(resetPasswordPopup)">lock</mat-icon> -->
+
+                  <mat-icon routerLink="/dash/edit-class/{{element.classID}}">edit</mat-icon>
+                  <mat-icon (click)="actionDialogPopup(deletePopup, element.departmentID)">delete</mat-icon>
+                </div>
+              </td>
+            </ng-container>
+
+
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;">
+            </tr>
+          </table>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<ng-template #deletePopup>
+  <div class="dialog-md">
+    <i class="material-icons popupClose" mat-dialog-close>clear</i>
+    <div class="dialogTitle center-align loginTtile">
+      <h5 mat-dialog-title> Do you want to delete ?</h5>
+    </div>
+    <mat-dialog-content class="mat-typography">
+      <!-- <p class="mb-4 center ">Do you want to delete ?</p> -->
+      <div class="btnsWidget form-group center">
+        <button mat-dialog-close (click)="confirmDelete()" class="btn btn-primary btn-sm">Yes</button>
+        <button mat-dialog-close class="btn btn-reset btn-sm">NO</button>
+
+      </div>
+    </mat-dialog-content>
+  </div>
+</ng-template>
+

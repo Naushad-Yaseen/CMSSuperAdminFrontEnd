@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { LoginService } from 'src/app/comman/core-services/login.service';
 import { User } from 'src/app/comman/Models/user';
 
 @Component({
@@ -15,26 +16,38 @@ export class HeaderComponent implements OnInit {
     this.toggle = !this.toggle;
   }
 
-  users:any;
-  user : User
- constructor(private router: Router ) {
+//  users:any;
+  user : User;
+ constructor(private router: Router, private loginService:LoginService ) {
 
-   this.users = localStorage.getItem('currentUser');
-   var currentUser = JSON.parse(this.users);
-   if(currentUser!=null)
-   {
+  //  this.users = localStorage.getItem('currentUser');
+  //  var currentUser = JSON.parse(this.users);
+  //  if(currentUser!=null)
+  //  {
 
-     this.user = currentUser;
+  //    this.user = currentUser;
 
 
-     console.log(this.user);
+  //    console.log(this.user);
 
-   }
+  //  }
   }
 
 
   ngOnInit(): void {
+    this.loginService.currentUser$.subscribe((res:any)=>{
+      console.log('res of currentUser',res);
+      this.user=res;
+    })
+    // this.loginService.currentUser$.subscribe((res:any)=>{
+    //   console.log('res',res);
+    //   this.user = res.fullName;
+
+    // })
+    // console.log('', this.loginService.currentUser$.fullName);
+
   }
+
   toggleSidebar(){
     this.toggleSidebarForMe.emit();
   }

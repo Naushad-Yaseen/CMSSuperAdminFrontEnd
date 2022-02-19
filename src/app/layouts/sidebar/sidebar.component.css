@@ -23,7 +23,7 @@
         .sb-sidenav .sb-sidenav-menu .nav .nav-link:hover,
         .sb-sidenav .sb-sidenav-menu .nav .nav-link.active{
             border-color:var(--green);
-            background-color: rgba(0,0,0,0.1);
+            background-color: rgba(0, 0, 0, 0.055);
         }
 
         .sb-sidenav .sb-sidenav-menu .nav .nav-link:hover .sb-nav-link-icon,
@@ -32,4 +32,3 @@
         }
 
 
-                

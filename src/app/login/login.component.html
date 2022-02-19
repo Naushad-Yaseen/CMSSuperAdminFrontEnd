@@ -1,0 +1,34 @@
+<mat-card>
+
+  <mat-card-title>Login</mat-card-title>
+  <mat-card-content>
+    <form [formGroup]="loginForm" (ngSubmit)="submit()">
+
+      <p>
+        <mat-form-field class="full-width-input"  appearance="outline">
+          <mat-label>email</mat-label>
+          <input matInput type="text" required formControlName="email">
+          <mat-error>
+            Please provide a valid email address
+          </mat-error>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="full-width-input" appearance="outline">
+          <mat-label>password</mat-label>
+          <input matInput type="password" required formControlName="password">
+        </mat-form-field>
+      </p>
+
+      <div>
+        <button mat-raised-button color="primary" type="submit">Sign In</button>
+        <!-- <button mat-raised-button color="primary" >  Change Password</button> -->
+
+
+      </div>
+      <!-- <p>Change Password</p> -->
+
+
+    </form>
+  </mat-card-content>
+</mat-card>

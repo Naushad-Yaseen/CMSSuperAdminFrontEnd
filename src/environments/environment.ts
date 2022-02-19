@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-    baseUrl:'https://localhost:44390',
+   // baseUrl:'https://localhost:44390',
+    baseUrl:'http://localhost:17808',
  //baseUrl: 'https://ms.stagingsdei.com:8003',
 };
 
@@ -23,7 +24,7 @@ export const organization={
   getOrganizationListAPI:'/api/Organization/GetOrganizationsList',
   deleteOrganizationListAPI:'/api/Organization/DeleteOrganization',
   getOrganizationByIdAPI:'/api/Organization/GetOrganizationListById',
-  
+
 };
 
 export const siteSubscriptionPlan={
@@ -44,7 +45,7 @@ export const roles={
 export const emailTemplate={
   allEmailTemplateAPI:'/api/EmailTemplate/GetEmailTemplate',
   EmailTemplateByIdAPI:'/api/EmailTemplate/GetEmailTemplateById',
- 
+
   updateEmailTemplateAPI:'/api/EmailTemplate/UpdateEmailTemplate',
 };
 
@@ -104,4 +105,8 @@ export const ViewAdminMasters={
   getAdminList:'/api/AdminUsers/AdminDetails',
 
 
+}
+
+export const Student={
+  getstudentDetailByAcademicIdClassIdSectionId:'/api/Student/getStudentDetailsByClassIdSectionIdAcademicId'
 }
