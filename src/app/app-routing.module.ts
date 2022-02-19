@@ -115,7 +115,7 @@ const routes: Routes = [
         // canActivate:[AuthGuardService]
       },
       {
-        path: 'edit-staff',
+        path: 'editt-staff',
         component: EditAdminComponent,
       },
       {
