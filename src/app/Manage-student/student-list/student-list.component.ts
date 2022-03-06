@@ -1,6 +1,9 @@
-import { Component, OnInit, TemplateRef } from '@angular/core';
+import { SelectionModel } from '@angular/cdk/collections';
+import { AfterViewInit, Component, OnInit,Output, TemplateRef,EventEmitter, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatPaginator } from '@angular/material/paginator';
+import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 // import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
@@ -13,9 +16,12 @@ import { StudentService } from '../services/student.service';
   styleUrls: ['./student-list.component.css']
 })
 export class StudentListComponent implements OnInit {
-   dataSource: MatTableDataSource<any>;
+   dataSource:any;
+   selection = new SelectionModel<any>(true, []);
   //dataSource:any;
   // form:FormGroup;
+ // @Output() onselect = new EventEmitter();
+  selectedData=0;
   term:any;
   AcademicSessionDropdown: any;
   ClassDropDown: any;
@@ -23,16 +29,68 @@ export class StudentListComponent implements OnInit {
   sectionId = 0;
   classID = 0;
   acdemicID = 0;
-
+  selectedRow:any;
+  selectedId:any[];
+  @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
   constructor(private studentService: StudentService, private sectionService: SectionService,
-    private dialog: MatDialog, private toaster: ToastrService) { }
-  displayedColumns: string[] = ['profilePhoto', 'admissionNumber', 'fullName', 'email', 'actions']
+    private dialog: MatDialog, private toaster: ToastrService) {
+      // const users = Array.from({length: 100});
+    }
+
+  displayedColumns: string[] = ['select','profilePhoto', 'admissionNumber', 'fullName', 'email', 'actions']
   ngOnInit(): void {
+    this.selectedRow = []
     this.getStudentList()
     this.academicSessionDropdown();
     this.classDropDown();
     this.sectionDropDown();
+
   }
+  // isAllSelected() {
+  //   const numSelected = this.selection.selected.length;
+  //   const numRows = this.dataSource.data.length;
+  //   return numSelected === numRows;
+  // }
+
+  isAllSelected() {
+    this.selectedId =[];
+    if(this.selection.selected.length !=0){
+    for(var i=0;i<this.selection.selected.length;i++){
+       if(this.selection.selected[i].studentID != undefined){
+       this.selectedId.push(this.selection.selected[i].studentID)
+      }
+      if(this.selection.selected[i].teacherID != undefined){
+        this.selectedId.push(this.selection.selected[i].teacherID)
+       }
+    }
+   // this.onselect.emit(this.selectedId)
+  }
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected === numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  // masterToggle() {
+  //   this.isAllSelected() ?
+  //       this.selection.clear() :
+  //       this.dataSource.data.forEach((row:any) => this.selection.select(row));
+  // }
+
+  masterToggle() {
+    this.isAllSelected()
+      ? this.selection.clear()
+      : this.dataSource.data.forEach((row:any) => this.selection.select(row));
+      if(this.selection.selected.length == 0){
+        this.selectedId =[];
+        console.log("SELECTEDDATA",this.selectedId)
+       // this.onselect.emit(this.selectedId)
+      }
+      console.log()
+  }
+
+
   filterStudentByAcdemic(event: any) {
     this.acdemicID = event.value;
     console.log('acdemicID', this.acdemicID);
@@ -52,11 +110,35 @@ export class StudentListComponent implements OnInit {
   }
   getStudentList() {
     this.studentService.getStudentDetailsByAcademecIdClassIdSectionId(this.acdemicID, this.classID, this.sectionId).subscribe((res: any) => {
-      this.dataSource =res.responseData;
+      // this.dataSource =res.responseData;
        this.dataSource =new MatTableDataSource<any>(res.responseData);
+       this.dataSource.paginator = this.paginator;
+       this.dataSource.sort = this.sort;
       console.log('getStudentList', this.dataSource.filteredData);
 
-    })
+    });
+  }
+
+  printFlag:boolean;
+
+  onselect(data?:any){
+    debugger;
+    if(data == undefined){
+      this.printFlag = false;
+    }
+    else{
+    if(data.length != undefined){
+      if(data.length == 0){
+        this.printFlag = false;
+        this.selectedData = data.length;
+      }
+      else{
+        this.selectedRow = data;
+        this.selectedData = data.length;
+        this.printFlag = true;
+      }
+    }
+  }
   }
 
   deleteId: any;
@@ -102,21 +184,16 @@ export class StudentListComponent implements OnInit {
     })
   }
 
-  applyFilter(event: Event) {
 
+  applyFilter(event: Event) {
+    console.log('Event', event);
     const filterValue = (event.target as HTMLInputElement).value;
     console.log('filterValue', filterValue);
     this.dataSource.filter = filterValue.trim().toLowerCase();
     console.log('this.dataSource.filter', this.dataSource.filter);
-    // if (this.dataSource.paginator) {
-    //   this.dataSource.paginator.firstPage();
-    // }
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
-//   filterTable (filterValue :any) {
-//     console.log('filterTable',this.dataSource.filter);
-//     this.dataSource.filter = filterValue.trim().toLowerCase();
-
-
-//  }
 
 }

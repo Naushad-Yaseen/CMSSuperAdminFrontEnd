@@ -4,3 +4,121 @@
 span{
 color: red;
 }
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+td, th {
+  width: 25%;
+}
+
+.rightTableActions.centerItemvert {
+  align-items: center !important;
+}
+.cursor-pointer{
+  cursor: pointer;
+}
+
+.tableFilter > div .fas {
+  margin-right: 5px;
+}
+
+
+.textareaForSMS{
+min-height: 30px !important;
+}
+
+.attchements-container{
+margin-top: 1rem;
+border-bottom: 1px solid #f2f2f2;
+padding-top: 1.5rem;
+}
+
+.attachment-popup .mat-expansion-panel{
+box-shadow: none;
+}
+
+.attachment-popup .mat-expansion-panel-body{
+padding:0;
+}
+
+td.mat-cell.cdk-cell.cdk-column-profilePhoto.mat-column-profilePhoto span img {
+border-radius: 100%;
+width: 35px;
+height: 35px;
+-o-object-fit: cover;
+object-fit: cover;  }
+
+.add_button .fa-chevron-down{
+  margin-left: 0.8rem;
+}
+.cardWidget{margin-top:27px;}
+i.fas.fa-arrow-right{color:white;}
+/* .viewColumns,.downloadTable{width:15%;}
+.enrolmentTable,.selectedColTable{width:30%; margin-top:15px;} */
+.centerItemvert {
+  display: flex;
+  -webkit-box-align: center;
+  justify-content: center;
+  flex-flow: row wrap;
+  align-content: space-between;
+  justify-content: space-between;
+  justify-content: flex-end;
+}
+.pageTitle{margin-top:0px !important;}
+
+
+.tags.underlinedLink {
+text-decoration: none;
+padding: 5px 10px;
+font-size: 12px;
+font-weight: 500;
+border-radius: 3px;
+color: white;
+background: var(--primary)!important;
+}
+
+.chngePicupload input[type = file] {
+position: absolute;
+top: 0;
+left: 0;
+height: 100%;
+width: 100%;
+opacity: 0;
+z-index: 1;
+}
+
+.chngePic img {
+object-fit: cover;
+height: 100%;
+width: 100%;}
+
+.disablePointer{
+  cursor: not-allowed !important;
+}
+
+.CustomboxEmail{
+  min-height: 30px !important;
+  border-radius: 1px !important;
+}
+
+
+.smsCred{
+margin-right: 5px;
+}
+.popupstags{
+font-size: 18px;
+margin-bottom: 15px;
+}
+
+.chngePicupload input[type = file] {
+height: 70%;
+width: 93%;
+}
+/* / .dialog-xdx{width: 70vw;} / */

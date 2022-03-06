@@ -1,7 +1,9 @@
+import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit, TemplateRef } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { MatTableDataSource } from '@angular/material/table';
 import { ToastrService } from 'ngx-toastr';
 import { AcademicSessionService } from '../services/academic-session.service';
 
@@ -13,18 +15,33 @@ import { AcademicSessionService } from '../services/academic-session.service';
 export class AcademicSessionListComponent implements OnInit {
   dataSource: any;
   useDefault: boolean;
+  // selection: any;
+  // dataSource = new MatTableDataSource<PeriodicElement>(ELEMENT_DATA);
+  selection = new SelectionModel<any>(true, []);
 
   constructor(private academicsessionService: AcademicSessionService, private toaster: ToastrService, private dialog: MatDialog) { }
-  displayedColumns: string[] = ['AcademicSessionName', 'StartDate', 'EndDate', 'lock/unlock', 'actions',];
+  displayedColumns: string[] = ['select','AcademicSessionName', 'StartDate', 'EndDate', 'lock/unlock', 'actions',];
 
   ngOnInit(): void {
     this.loadAcademidSessionList();
 
   }
+  isAllSelected() {
+    const numSelected = this.selection.selected.length;
+    const numRows = this.dataSource.data.length;
+    return numSelected == numRows;
+  }
+
+  /** Selects all rows if they are not all selected; otherwise clear selection. */
+  masterToggle() {
+    this.isAllSelected() ?
+        this.selection.clear() :
+        this.dataSource.data.forEach((row:any) => this.selection.select(row));
+  }
 
   loadAcademidSessionList() {
     this.academicsessionService.getAcademidSessionList().subscribe((res: any) => {
-      this.dataSource = res.responseData;
+      this.dataSource = new MatTableDataSource<any>(res.responseData) ;
       console.log('AcademidSessionList', this.dataSource);
 
     })
